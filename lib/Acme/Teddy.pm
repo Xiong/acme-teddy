@@ -219,12 +219,11 @@ This is a flexible, robust, subclassable object constructor.
     my $bear    = Acme::Teddy->new( [ 1, 2, 3, 4 ] );
     my $bear    = Acme::Teddy->new( {}, @some_data );
 
-It will bless any reference. 
- If invoked with C<$class> only, 
-   blesses an empty hashref and calls L</init()> with no arguments. 
+It will bless any reference. If invoked with C<$class> only, 
+blesses an empty hashref and calls L</init()> with no arguments. 
 
- If invoked with C<$class> and a reference,
-   blesses the reference and calls L<init()> with any remaining C<@args>. 
+If invoked with C<$class> and a reference,
+blesses the reference and calls L</init()> with any remaining C<@args>. 
 
 =head2 init()
 
