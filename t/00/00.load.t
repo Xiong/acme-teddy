@@ -1,1 +1,1 @@
-/home/xiong/projects/test-ranger/t/all/00.load.t
+/home/xiong/projects/acme-teddy/t/all/00.load.t
