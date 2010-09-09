@@ -1,1 +1,1 @@
-/home/xiong/projects/test-ranger/t/all/teddytest.t
+/home/xiong/projects/acme-teddy/t/all/teddytest.t
