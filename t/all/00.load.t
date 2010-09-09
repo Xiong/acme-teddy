@@ -1,7 +1,7 @@
 use Test::More tests => 1;
 
 BEGIN {
-use_ok( 'Test::Ranger' );
+use_ok( 'Acme::Teddy' );
 }
 
-diag( "Testing Test::Ranger $Test::Ranger::VERSION" );
+diag( "Testing Acme::Teddy $Acme::Teddy::VERSION" );
