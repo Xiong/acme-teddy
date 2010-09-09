@@ -1,1 +1,1 @@
-/home/xiong/projects/test-ranger/t/all/pod.t
+/home/xiong/projects/acme-teddy/t/all/pod.t
