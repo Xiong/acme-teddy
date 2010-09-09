@@ -1,33 +1,23 @@
-use 5.10.1;
+#use 5.10.1;    # don't demand a version until we see how far back it works
 use strict;
 use warnings;
 use Module::Build;
 
 my $builder = Module::Build->new(
-    module_name         => 'Test::Ranger',
+    module_name         => 'Acme::Teddy',
     license             => 'artistic_2',
     dist_author         => 'Xiong Changnian <xiong@cpan.org>',
-    dist_version_from   => 'lib/Test/Ranger.pm',
+    dist_version_from   => 'lib/Acme/Teddy.pm',
     requires => {
-        'Test::More' => 0,
-        'version'    => 0,
     },
-    add_to_cleanup      => [ 'Test-Ranger-*' ],
+    add_to_cleanup      => [ 'Acme-Teddy-*' ],
     meta_merge              => {
         resources               => {
-            repository              => 'http://github.com/Xiong/test-ranger',
+            repository              => 'http://github.com/Xiong/acme-teddy',
         },
         keywords            => [ qw(
             test        testing 
-            debug       debugging 
-            devel       development 
-            frame       framework
-            
-            table       tablular        table-driven
-            procedural
-            capture     capturing
-            template    templating
-                    
+            dummy       target        
         ) ],
     },
 );

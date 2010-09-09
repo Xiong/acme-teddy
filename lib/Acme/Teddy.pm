@@ -164,7 +164,6 @@ This document describes Acme::Teddy version 1.002003
     # teddytest-oo.t
     {
         package Acme::Teddy;
-        sub new{ return bless {} };
         sub talk{ 'Yabba dabba do!' };
     }
     package main;
@@ -176,14 +175,26 @@ This document describes Acme::Teddy version 1.002003
 
 =head1 DESCRIPTION
 
+I<Do what you can, with what you have, where you are.> --Teddy Roosevelt
+
 Testing modules need something to test. 
 Acme::Teddy is all things to all bears. 
 
-The code shown in L<SYNOPSIS> is all in one file. 
 Switch into C<package Acme::Teddy> in your test script, define whatever you 
 like there. Then switch back to C<package main> and test your testing module. 
 
-=head1 METHODS
+Note that it is often I<completely unnecessary> to use this module! You can achieve similar results with: 
+
+    {
+        package Frobnitz::Blowhard;
+        sub foo{ return 'foo' . shift };
+    }
+    print Frobnitz::Blowhard::foo('bar');
+
+Although you may find it slightly more convenient, the main purpose of 
+Acme::Teddy is to give you the comfort of using a "real" module. 
+
+=head1 FUNCTIONS/METHODS
 
 =head2 import()
 
@@ -195,7 +206,53 @@ introduce any dependencies whatsoever; and we offer caller the freedom to
 export anything at all. Almost no checking is done of arguments passed 
 to C<import()> (normally, on the C<use()> line).
 
+=head2 new()
+
+    my $bear    = $class->new($ref, @args);
+
+This is a flexible, robust, subclassable object constructor. 
+
+    my $bear    = Acme::Teddy->new();
+    my $bear    = Acme::Teddy->new( [] );
+    my $bear    = Acme::Teddy->new( \&my_sub );
+    my $bear    = Acme::Teddy->new( { -a  => 'x' } );
+    my $bear    = Acme::Teddy->new( [ 1, 2, 3, 4 ] );
+    my $bear    = Acme::Teddy->new( {}, @some_data );
+
+It will bless any reference. 
+ If invoked with C<$class> only, 
+   blesses an empty hashref and calls L</init()> with no arguments. 
+
+ If invoked with C<$class> and a reference,
+   blesses the reference and calls L<init()> with any remaining C<@args>. 
+
+=head2 init()
+
+This is a placeholder method. You might want to override it in a subclass. 
+For common initializations, you can just invoke L</new()> with initial data. 
+
 =head1 INTERFACE 
+
+    {
+        package Acme::Teddy;
+        # Your target code here.
+    }
+    package main;
+    use Acme::Teddy;
+    use Test::Your::Testing::Module;
+    # Your test here. 
+
+Start a test script with a bare block in AT (or subclass it). Then define 
+whatever behavior you like. After you switch into "your own" package, test 
+for that behavior. You should be able to verify by eye that your expectations 
+are correct; therefore, you can concentrate on debugging your testing module. 
+
+Writing the bare block is just like writing a module, except that much of the 
+dull work is done for you. 
+
+Lexical declarations will "leak" across package boundaries if you leave off 
+the bare block; so don't do that. It does not seem to be necessary to make 
+this a C<BEGIN> block; if you find any counterexample, please contact author. 
 
 Import whatever you like when you C<use Acme::Teddy>. 
 Be sure to define it, whatever it is. 
@@ -208,10 +265,9 @@ You can invoke a function (that you defined) with:
 
 Or invoke a method: 
 
-    my $bear    = Acme::Teddy::new();
     $bear->talk();
 
-Don't forget to define those methods! 
+Don't forget to define that method! 
 
 =head1 DIAGNOSTICS
 

@@ -1,32 +1,20 @@
-Test-Ranger version 0.0.1
+Acme-Teddy version 1.002003
 
-"The computer should be doing the hard work. 
-        That's what it's paid to do, after all."
-                                          -- Larry Wall
+Do what you can, with what you have, where you are. --Teddy Roosevelt
 
-This is a comprehensive testing module compatible with Test::More and friends 
-within TAP::Harness. Helper scripts and templates are included to make 
-test-driven development quick, easy, and reliable. Test data structure is 
-open; choose from object-oriented methods or procedural/functional calls. 
-
-Tests themselves are formally untestable. All code conceals bugs. Do you want 
-to spend your time debugging tests or writing production code? 
-The Test::Ranger philosophy is to reduce the amount of code in a test script 
-and let test data (given inputs and wanted outputs) dominate. 
-
-Many hand-rolled test scripts examine expected output to see if it matches 
-expectations. Test::Ranger traps fatal exceptions cleanly and makes it easy 
-to check every execution for both expected and unexpected output. 
+Testing modules need something to test. Acme::Teddy is all things to all bears.
+Switch into C<package Acme::Teddy> in your test script, define whatever you 
+like there. Then switch back to C<package main> and test your testing module. 
 
 
 INSTALLATION
 
 To install this module with Module::Build, run the following commands:
 
-	perl Makefile.PL
-	make
-	make test
-	make install
+    perl Makefile.PL
+    make
+    make test
+    make install
 
 
 DEPENDENCIES

@@ -3,5 +3,3 @@ Changes
 MANIFEST
 README
 lib/Acme/Teddy.pm
-lib/Test/Ranger.pm
-lib/Test/Ranger/List.pm

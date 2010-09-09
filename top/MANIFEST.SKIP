@@ -55,7 +55,7 @@
 #----------------------------------------------------------------------------#
 
 # Avoid archives of this distribution
-\bTest-Ranger-v[\d\.\_]+
+\bAcme-Teddy-[\d\.\_]+
 
 # Avoid stuff untracked by Git
 ^hold\b
